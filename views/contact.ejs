@@ -4,17 +4,20 @@
         <div class="text-center m-4">
             <h1>Contact List</h1>
         </div>
+        <!-- Branch for contact if data is not in JSON -->
         <% if (contact.length < 1) { %>
         <p>Data contact is not available</p>
         <% } else { %>
         <table class="m-auto my-5" border="1" cellspacing="0" cellpadding="10">
             <thead class="text-center fs-5">
+                <!-- Loop for head in table -->
                 <% titles = ['No', 'Nama', 'Email', 'Mobile', 'Action'] %>
                 <% titles.forEach(head => { %>
                 <th><%= head %></th>
                 <% }); %>
             </thead>
             <tbody>
+                <!-- Loop to display all data in JSON -->
                 <% contact.forEach((row, i) => { %>
                 <tr>
                     <td class="fw-bold text-center"><%= i+1 %></td>
