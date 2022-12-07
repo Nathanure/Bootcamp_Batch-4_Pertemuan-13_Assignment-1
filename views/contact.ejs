@@ -1,0 +1,33 @@
+<%- contentFor('content') %>
+<main>
+    <div class="container">
+        <div class="text-center m-4">
+            <h1>Contact List</h1>
+        </div>
+        <% if (contact.length < 1) { %>
+        <p>Data contact is not available</p>
+        <% } else { %>
+        <table class="m-auto my-5" border="1" cellspacing="0" cellpadding="10">
+            <thead class="text-center fs-5">
+                <% titles = ['No', 'Nama', 'Email', 'Mobile', 'Action'] %>
+                <% titles.forEach(head => { %>
+                <th><%= head %></th>
+                <% }); %>
+            </thead>
+            <tbody>
+                <% contact.forEach((row, i) => { %>
+                <tr>
+                    <td class="fw-bold text-center"><%= i+1 %></td>
+                    <td><%= row.name %></td>
+                    <td><%= row.email %></td>
+                    <td><%= row.mobile %></td>
+                    <td class="text-center">
+                        <a class="badge rounded-pill px-3 text-bg-success text-decoration-none" href="contact/<%= row.name %>">Detail</a>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <% } %>
+    </div>
+</main>
